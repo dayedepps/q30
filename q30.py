@@ -7,7 +7,7 @@ def qual_stat(qstr):
     q30 = 0
     for q in qstr:
         qual = ord(q) - 33
-        if qual > 30:
+        if qual >= 30:
             q30 += 1
             q20 += 1
         elif qual >= 20:
@@ -28,9 +28,11 @@ def stat(filename):
         q20_count += q20
         q30_count += q30
 
-    print(total_count, q20_count, q30_count)
-    print("q20 percents:", float(q20_count)/float(total_count))
-    print("q30 percents:", float(q30_count)/float(total_count))
+    print("total bases:", total_count)
+    print("q20 bases:", q20_count)
+    print("q30 bases:", q30_count)
+    print("q20 percents:", 100 * float(q20_count)/float(total_count))
+    print("q30 percents:", 100 * float(q30_count)/float(total_count))
 
 def main():
     if len(sys.argv) < 2:
